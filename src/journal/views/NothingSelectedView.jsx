@@ -1,6 +1,6 @@
 import { StarOutline } from '@mui/icons-material'
 import { Grid, Typography } from '@mui/material'
-import React from 'react'
+import Draw from '../../assets/images/draw.png'
 
 export const NothingSelectedView = () => {
     return (
@@ -10,14 +10,22 @@ export const NothingSelectedView = () => {
             direction="column"
             alignItems="center"
             justifyContent="center"
-            sx={{ minHeight: 'calc(100vh - 110px)', backgroundColor: 'primary.main', borderRadius: 3}}
+            sx={{ minHeight: 'calc(100vh - 110px)'}}
         > 
-            <Grid item xs={12}>
-                <StarOutline sx={{fontSize: 100, color: 'white'}}/>
+            <Grid item xs={12} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                {/* <StarOutline sx={{fontSize: 100, color: 'gray'}}/> */}
+                <img
+                    src={Draw}
+                    srcSet={Draw}
+                    alt="Añadir nota"
+                    loading="lazy"
+                    width="30%"
+                    heigh="30%"
+                />
             </Grid>
 
-            <Grid item xs={12}>
-                <Typography color="white" variant='h5'>Selecciona o crea una entrada</Typography>
+            <Grid item xs={12} sx={{marginTop: 5}}>
+                <Typography color="gray" variant='h5'>Selecciona o crea una entrada</Typography>
             </Grid>
         </Grid>
     )

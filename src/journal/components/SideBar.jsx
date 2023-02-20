@@ -16,9 +16,9 @@ export const SideBar = ({drawerWidth = 240}) => {
                     '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth}
                 }}
             >
-                <Toolbar>
+                <Toolbar sx={{backgroundColor: 'primary.main'}}>
 
-                    <Typography variant="h6" noWrap component="div">
+                    <Typography variant="h6" noWrap component="div" color="white">
                         Alejandro Perdomo
                     </Typography>
 
