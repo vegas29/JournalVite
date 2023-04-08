@@ -19,7 +19,7 @@ export const JournalPage = () => {
             <IconButton
                 size='large'
                 sx={{
-                    color: 'white',
+                    color: 'white.main',
                     backgroundColor: 'error.main',
                     ':hover' : {backgroundColor: 'error.main', opacity: 0.9},
                     position: 'fixed',

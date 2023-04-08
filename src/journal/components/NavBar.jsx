@@ -24,7 +24,7 @@ export const NavBar = ({drawerWidth = 240}) => {
                 >
                     <Typography variant="h6" noWrap component="div" > JournalApp </Typography>
 
-                    <IconButton color="error">
+                    <IconButton color="white">
                         <LogoutOutlined />
                     </IconButton>
                 </Grid>
