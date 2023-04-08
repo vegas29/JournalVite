@@ -22,10 +22,10 @@ export const NavBar = ({drawerWidth = 240}) => {
                     justifyContent="space-between"
                     alignItems="center"
                 >
-                    <Typography variant="h6" noWrap component="div" > JournalApp </Typography>
+                    <Typography variant="h6" noWrap component="div" > Journal App </Typography>
 
-                    <IconButton color="white">
-                        <LogoutOutlined />
+                    <IconButton color="error">
+                        <LogoutOutlined sx={{color: 'primary.white'}}/>
                     </IconButton>
                 </Grid>
             </Toolbar>
