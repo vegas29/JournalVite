@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Button, Grid, Link, TextField, Typography } from "@mui/material";
-import { AuthLayout } from '../layout/AuthLayout';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks';
-import { useDispatch } from 'react-redux';
+import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material";
+import { AuthLayout } from '../layout/AuthLayout';
 import { startCreatingUserWithEmailAndPassword } from '../../store/auth';
 
 const formData = {
@@ -23,12 +23,13 @@ export const RegisterPage = () => {
     const dispatch = useDispatch();
     const [formSubmitted, setFormSubmitted] = useState(false);
 
+
+    const { status, errorMessage } = useSelector( state => state.auth );
+    const isCheckingAuthentication = useMemo( () => status === 'checking', [status]);
     const { 
         formState, displayName, email, password, onInputChange,
         isFormValid, displayNameValid, emailValid, passwordValid, 
     } = useForm( formData, formValidations );
-
-    console.log(displayNameValid)
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -87,12 +88,24 @@ export const RegisterPage = () => {
                         />
                     </Grid>
 
+                    <Grid 
+                        item 
+                        xs={12}
+                        sx={{marginTop: 2}}
+                        display={ !!errorMessage ? '' : 'none' }
+                    >
+                        <Alert severity='error'>
+                            {errorMessage}
+                        </Alert>
+                    </Grid>
+
                     <Grid container spacing={2} sx={{mb: 2, mt: 1}}>
                         <Grid item xs={12}>
                             <Button 
                                 variant='contained' 
                                 fullWidth
                                 type="submit"
+                                disabled={isCheckingAuthentication}
                             >
                                 Register
                             </Button>
