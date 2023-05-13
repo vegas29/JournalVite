@@ -16,7 +16,7 @@ const formValidations = {
     email: [ (value) => value.includes('@'), 'El correo debe de tener una @'],
     password: [ (value) => value.length >= 6, 'El password debe de tener más de 6 letras.'],
     displayName: [ (value) => value.length >= 1, 'El nombre es obligatorio.'],
-  }
+}
 
 export const RegisterPage = () => {
 
@@ -45,6 +45,17 @@ export const RegisterPage = () => {
                 onSubmit={onSubmit}
             >
                 <Grid container>
+
+                    <Grid 
+                        item 
+                        xs={12}
+                        sx={{marginTop: 2}}
+                        display={ !!errorMessage ? '' : 'none' }
+                    >
+                        <Alert severity='error'>
+                            {errorMessage}
+                        </Alert>
+                    </Grid>
 
                     <Grid item xs={12} sx={{ mt:2}}>
                         <TextField 
@@ -86,17 +97,6 @@ export const RegisterPage = () => {
                             error={!!passwordValid && formSubmitted}
                             helperText={passwordValid}
                         />
-                    </Grid>
-
-                    <Grid 
-                        item 
-                        xs={12}
-                        sx={{marginTop: 2}}
-                        display={ !!errorMessage ? '' : 'none' }
-                    >
-                        <Alert severity='error'>
-                            {errorMessage}
-                        </Alert>
                     </Grid>
 
                     <Grid container spacing={2} sx={{mb: 2, mt: 1}}>
