@@ -17,7 +17,8 @@ export const AuthLayout = ({title = '', children}) => {
                 // md={ 6 }
                 sx={{backgroundColor: 'white.main', padding: 3, borderRadius: 2, width: {sm: 450}}}
             >
-                <Typography variant='h5' sx={{mb: 1}}>{title}</Typography>
+                <Typography variant='h5' sx={{mb: 1}} fontSize={50} fontWeight={'bold'}>{title}</Typography>
+                <Typography sx={{mb: 1}} fontSize={18} fontWeight={'light'}>Accede a notes app</Typography>
                 { children }
             </Grid>
         </Grid>        
