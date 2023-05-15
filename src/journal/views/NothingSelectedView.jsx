@@ -1,8 +1,7 @@
 import React from 'react';
 import { Grid, Typography } from '@mui/material';
-import { StarOutline } from '@mui/icons-material';
 
-import Web from '../../assets/img/web.svg';
+import Web from '../../assets/images/web.svg';
 
 export const NothingSelectedView = () => {
     return (

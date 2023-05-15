@@ -7,6 +7,7 @@ import { ImageGallery } from "../components";
 import { setActiveNote, startDeletingNote, startSaveNote, startUploadingFiles } from "../../store/journal";
 import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2';
+import { Empty } from "../../ui/components/";
 
 export const NoteView = () => {
 
@@ -58,7 +59,7 @@ export const NoteView = () => {
             sx={{mb:1}}
         >
             <Grid item>
-                <Typography fontSize={40} fontWeight='light'>{dateString}</Typography>
+                <Typography fontSize={25} fontWeight='light'>{dateString.toString().slice(0, 25)}</Typography>
             </Grid>
 
             <Grid item>
@@ -86,7 +87,7 @@ export const NoteView = () => {
                     disabled={isSaving}
                 >
                     <SaveOutlined sx={{fontSize: 30, mr: 1}} />
-                    Guardar
+                    Save
                 </Button>
             </Grid>
 
@@ -130,9 +131,12 @@ export const NoteView = () => {
                 </Button>
             </Grid>
 
-            {/* Gallery */}
+            {
+                (note.imageUrls.length > 0)
+                    ? <ImageGallery images={note.imageUrls} />
+                    : <Empty/>
+            }
 
-            <ImageGallery images={note.imageUrls} />
         </Grid>
     )
 }

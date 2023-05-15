@@ -36,9 +36,13 @@ export const SidebarItem = ({title = '', body, id, date, imageUrls = []}) => {
                     <TurnedInNot />
                 </ListItemIcon>
 
-                <Grid container>
-                    <ListItemText primary={newTitle} />
-                    <ListItemText secondary={body} />
+                <Grid 
+                    container
+                    direction='column'
+                    justifyContent='center'
+                >
+                    <ListItemText primary={newTitle.length > 0 ? newTitle : 'Untitled'} />
+                    <ListItemText secondary={body.length > 0 ? body : 'No text'} />
                 </Grid>
             </ListItemButton>
         </ListItem>
