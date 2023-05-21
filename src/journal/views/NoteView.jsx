@@ -132,7 +132,7 @@ export const NoteView = () => {
             </Grid>
 
             {
-                (note.imageUrls.length > 0)
+                (note.imageUrls?.length > 0)
                     ? <ImageGallery images={note.imageUrls} />
                     : <Empty/>
             }
